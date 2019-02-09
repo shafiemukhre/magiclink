@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>MAGICLINK-USPS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id" content="27766777545-68qd21j3p5e06m04k8p760nfbuc7hkec.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.login-container {
+  float: right;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="#aboutus" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">AboutUs</a>
+    <a href="analytics.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Analytics</a>
+    <a href="contactus.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact-Us</a>
+    <div class="login-container">
+    <!-- <a href="signin.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Sign In</a> -->
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="white"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      }
+    </script>
+</div>
+</div>
+  <!-- </div> -->
+</div>
+  <!-- Navbar on small screens -->
+  <!-- <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  </div> -->
+
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">Explore the new marketing features of USPS</h1>
+  <h1 class="w3-margin w3-jumbo">Create a MagicLink with physical mail</h1>
+  <p class="w3-xlarge">Yes! USPS helps in e-marketing of your business too :)</p>
+  <form action="#yourad">
+         <button type="submit"class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
+      </form>
+</header>
+
+
+
+<!-- First Grid -->
+<div id='aboutus'><a name="AboutUs"></a>
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+
+      <h1>About US</h1>
+      <h5 class="w3-padding-32">Magiclink is a website portal that USPS clients -- focus on marketers target market -- can attach their website link into their physical envelope that USPS delivers.<h5>
+      <p class="w3-text-grey">We use the existing ML API from Google Cloud or Microsoft to initially train a minimum of 30 images of the company's logo on the marketing envelope. We will tag id for the trained pictures of logos, that will be associated with the desired companies' marketing emails.  If we see the image again, there is no need to go through the process again, as we already have processed it.</p>
+    </div>
+  </div>
+
+    <div class="w3-third w3-center">
+      <i class='fa fa-users' style='font-size:250px;color:red'></i>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class='fa fa-info' style='font-size:250px;color:red'></i>
+    </div>
+ <div id='yourad'><a name="YourAd"></a>
+    <div class="w3-twothird">
+      <h1>Give us your ad information</h1>
+
+
+        <form action="uploadfile.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload"><br>
+    Your Company Name:
+    <input type="text" name="Your Company Name"><br>
+    Link to your website:
+    <input type="text" name="Link to your website"><br>
+    <input type="submit" value="Submit" name="submit">
+</form>
+    </div>
+  </div>
+  </div>
+ </div>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+  <div class="w3-xlarge w3-padding-32">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div>
+ <p>Disclaimer: For USPS Hackathon purpose only</a></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
