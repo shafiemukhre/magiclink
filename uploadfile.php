@@ -1,6 +1,7 @@
 <?php
-echo "hello"
-$target_dir = "uploads/";
+header('Location: index.html');
+//echo "hello";
+$target_dir = '.';
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -42,4 +43,9 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+
+<?php
+$cookie_name = "MagicLinkUsageCount";
+setcookie($cookie_name, isset($_COOKIE[$cookie_name]) ? ++$_COOKIE[$cookie_name] : 1, time()+ 60 * 60 * 24 * 5, '/');
+?>
 ?>

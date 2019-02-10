@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>MAGICLINK-USPS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id" content="27766777545-68qd21j3p5e06m04k8p760nfbuc7hkec.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.login-container {
+  float: right;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="#aboutus" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">AboutUs</a>
+    <a href="analytics.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Analytics</a>
+    <a href="contactus.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact-Us</a>
+    <!-- <a href="admin.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">USPS-Admin</a> -->
+    <div class="login-container">
+    <!-- <a href="signin.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Sign In</a> -->
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="white"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      }
+    </script>
+</div>
+</div>
+  <!-- </div> -->
+</div>
+
+
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">MAGICLINK-USPS</h1>
+  <h1 class="w3-margin w3-jumbo">We are here to help in your marketing</h1>
+
+
+
+<form action="admin_action.php" method="post">
+
+User Name:
+<input type="text" name="user"><br> <br>
+Password:
+<input type="password" name="pwd"><br> <br>
+<input type="submit" value="Submit" name="submit">
+</form>
+
+</header>
